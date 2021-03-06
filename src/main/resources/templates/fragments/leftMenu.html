@@ -1,0 +1,59 @@
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!-- ============================================================== -->
+<!-- left sidebar -->
+<!-- ============================================================== -->
+<div class="nav-left-sidebar sidebar-dark navbar-dark bg-dark" th:fragment="leftMenu">
+    <div class="menu-list">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-divider">
+                        <span class="text-brand"> <h2>Menu</h2> </span>
+                    </li>
+                    <li class="nav-item ">
+                        <div>
+                            <ul class="nav flex-column">
+                                <li  class="nav-item">
+                                    <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/user/add}" class="nav-link">Add user</a>
+                                </li>
+                                <li  class="nav-item">
+                                    <a th:href="@{/user/all}" class="nav-link">List users</a>
+                                </li>
+
+                              <!--  <li sec:authorize="hasAuthority('Admin')" class="nav-item">
+                                    <a th:href="@{/order/add}" class="nav-link">Добавить заказ</a>
+                                </li>
+
+                                <li sec:authorize="hasAuthority('Admin')" class="nav-item">
+                                    <a th:href="@{/order/all}" class="nav-link">Список заказов</a>
+                                </li>
+
+                                <li sec:authorize="hasAuthority('User')" class="nav-item">
+                                    <a th:href="@{/order/orderCourier}" class="nav-link">Список заказов</a>
+                                </li>
+
+                                <li sec:authorize="hasAuthority('User')" class="nav-item">
+                                    <a th:href="@{/order/orderCourier/delivered}" class="nav-link">список доставленных заказов</a>
+                                </li>-->
+                            </ul>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- end left sidebar -->
+<!-- ============================================================== -->
+</html>

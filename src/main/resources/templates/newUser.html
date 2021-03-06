@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title > add user</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+        <h1> Add user</h1>
+        <form th:method="POST" th:action="@{new}" th:object="${user}">
+            <label for="name">Enter name</label>
+            <input type="text" th:field="*{username}" id="name">
+            <br/>
+            <label for="email">Enter password</label>
+            <input type="text" th:field="*{password}" id="email">
+            <br/>
+            <label for="location">Select role:</label>
+            <select  th:field="*{roles}" class="form-control" required="required" name="location" id="location">
+                <option th:each="i : ${roles}" th:value="${i}"
+                        th:text="${i}" >
+                </option>
+            </select>
+            <br/>
+            <input type="submit" value="Create!"/>
+        </form>
+    </div>
+</div>
+
+</body>
+

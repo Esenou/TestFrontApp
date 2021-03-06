@@ -1,0 +1,47 @@
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title> user list </title>
+</head>
+<body>
+<h1>Update User information</h1>
+<div layout:fragment="content">
+
+    <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+
+        <form th:method="POST" th:action="@{update/{id}(id=${user.id})}" th:object="${user}">
+
+            <label for="name">Enter name</label>
+
+            <input type="text" th:field="*{username}" id="name" required="required" th:value="${username}">
+            <br/>
+
+            <label for="email">Enter password</label>
+
+            <input type="text" th:field="*{password}" id="email" required="required" th:value="${username}">
+            <br/>
+
+            <label for="seletStatus">Select Status:</label>
+
+            <select th:field="*{userStatus}" class="form-control" required="required" name="location" id="seletStatus">
+                <option th:each="i : ${status}" th:value="${i}"
+                        th:text="${i}">
+                </option>
+            </select>
+            <br/>
+            <label for="location">Select role:</label>
+
+            <select th:field="*{roles}" class="form-control" required="required" name="location" id="location">
+                <option th:each="i : ${roles}" th:value="${i}"
+                        th:text="${i}">
+                </option>
+            </select>
+            <br/>
+            <input type="submit" value="Update!"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
